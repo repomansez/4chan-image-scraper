@@ -1,12 +1,11 @@
-#!/bin/ksh
+#!/bin/sh
 interactive(){
-
   echo -e "directory name: "
   read "dir"
   echo -e "thread link: "
   read "link"
 
-  mkdir "$dir" 2>/dev/null  || echo "directory exists, exiting"; exit
+  mkdir "$dir" || echo "directory exists, exiting"; exit
 
   /usr/bin/env python scrape.py "$link" > "$dir/links"
   cd "$dir"
@@ -16,8 +15,7 @@ interactive(){
 }
 
 direct(){
-
-  mkdir "$1" 2>/dev/null #|| echo "directory exists, exiting"; exit
+  mkdir "$1" || echo "directory exists, exiting"; exit
   /usr/bin/env python scrape.py "$2" > "$1/links"
   cd "$1"
   wget -nc -i links
