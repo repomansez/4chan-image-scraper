@@ -23,6 +23,10 @@ direct(){
   echo done!
 }
 
+if [ $(id -u) == '0' ]; then
+	echo "Don't run random scripts from the internet with root you dingus"
+	exit
+fi
 
 if [ -z $1 ]; then
   interactive
