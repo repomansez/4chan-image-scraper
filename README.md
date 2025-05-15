@@ -1,3 +1,5 @@
+# **This script no longer works as now 4chan serves javascript challenges**
+
 # 4chan image scraper
 made in python + shell because python is dumb and complicated 
 
